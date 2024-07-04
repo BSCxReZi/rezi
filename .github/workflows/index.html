@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form with Key Access</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: rgb(188, 193, 188);
+      color: #ecf0f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(44, 62, 80, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 300px;
+      transition: opacity 0.3s ease;
+    }
+    .container.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .container.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .inputBox {
+      position: relative;
+      margin: 30px 0;
+    }
+    .inputBox input {
+      width: 100%;
+      padding: 10px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid #3498db;
+      color: #ecf0f1;
+      font-size: 18px;
+      outline: none;
+    }
+    .inputBox i {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      transition: 0.5s;
+      pointer-events: none;
+      color: #3498db;
+    }
+    .inputBox input:focus ~ i, .inputBox input:valid ~ i {
+      top: -20px;
+      font-size: 12px;
+    }
+    .inputBox input[type="submit"] {
+      background: #3498db;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .inputBox input[type="submit"]:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Key Access Section -->
+<div class="container key-access visible">
+  <h2>Enter Access Key</h2>
+  <div class="form">
+    <div class="inputBox">
+      <input type="password" id="accessKey" required>
+      <i>Access Key</i>
+    </div>
+    <div class="inputBox">
+      <input type="submit" value="Submit" onclick="checkKey()">
+    </div>
+  </div>
+</div>
+
+<!-- Login Form Section -->
+<div class="container signin hidden">
+  <div class="content">
+    <h2>Sign In</h2>
+    <div class="form">
+      <div class="inputBox">
+        <input type="text" required>
+        <i>Username</i>
+      </div>
+      <div class="inputBox">
+        <input type="password" required>
+        <i>Password</i>
+      </div>
+      <div class="links">
+        <a href="#">Forgot Password</a>
+        <a href="#">Signup</a>
+      </div>
+      <div class="inputBox">
+        <input type="submit" value="Login">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const correctKey = "12345"; // Replace with your desired key
+
+  function checkKey() {
+    const inputKey = document.getElementById('accessKey').value;
+    if (inputKey === correctKey) {
+      document.querySelector('.key-access').classList.remove('visible');
+      document.querySelector('.key-access').classList.add('hidden');
+      document.querySelector('.signin').classList.remove('hidden');
+      document.querySelector('.signin').classList.add('visible');
+    } else {
+      alert("Incorrect key. Please try again.");
+    }
+  }
+</script>
+
+</body>
+</html>
