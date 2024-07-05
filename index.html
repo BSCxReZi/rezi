@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form with Key Access</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #2c3e50;
+      color: #ecf0f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: rgba(44, 62, 80, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 300px;
+    }
+    .inputBox {
+      position: relative;
+      margin: 30px 0;
+    }
+    .inputBox input {
+      width: 100%;
+      padding: 10px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid #3498db;
+      color: #ecf0f1;
+      font-size: 18px;
+      outline: none;
+    }
+    .inputBox i {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      transition: 0.5s;
+      pointer-events: none;
+      color: #3498db;
+    }
+    .inputBox input:focus ~ i, .inputBox input:valid ~ i {
+      top: -20px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Key Access Section -->
+<div class="container">
+  <h2>Enter Access Key</h2>
+  <div class="form">
+    <div class="inputBox">
+      <input type="password" id="accessKey" required oninput="checkKey()">
+      <i>Access Key</i>
+    </div>
+  </div>
+</div>
+
+<script>
+  const correctKey = "12345"; // Ganti dengan kunci akses yang Anda inginkan
+  const email = "freefiteee25@gmail.com";
+  const password = "RARTEAM1";
+
+  function checkKey() {
+    const inputKey = document.getElementById('accessKey').value;
+    if (inputKey === correctKey) {
+      login();
+    }
+  }
+
+  function login() {
+    // Simulasi pengiriman data login
+    console.log("Email: " + email);
+    console.log("Password: " + password);
+    // Ganti URL berikut dengan URL halaman berikutnya
+    window.location.href = "https://cashaib.wordpress.com/rar-nyamann-2/?fbclid=PAAaYN5hgKYBp_ckd5JrsbPD7k7EVMZkoW_P14zPBfrgHWh5fCy7OJZa-uKs0"; // Ganti dengan URL tujuan
+  }
+</script>
+
+</body>
+</html>
