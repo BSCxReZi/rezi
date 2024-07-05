@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background: rgb(188, 193, 188);
+      background: #2c3e50;
       color: #ecf0f1;
       display: flex;
       justify-content: center;
@@ -22,17 +22,6 @@
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       text-align: center;
       width: 300px;
-      transition: opacity 0.3s ease;
-    }
-    .container.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .container.visible {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
     }
     .inputBox {
       position: relative;
@@ -60,73 +49,39 @@
       top: -20px;
       font-size: 12px;
     }
-    .inputBox input[type="submit"] {
-      background: #3498db;
-      border: none;
-      color: white;
-      cursor: pointer;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .inputBox input[type="submit"]:hover {
-      background: #2980b9;
-    }
   </style>
 </head>
 <body>
 
 <!-- Key Access Section -->
-<div class="container key-access visible">
+<div class="container">
   <h2>Enter Access Key</h2>
   <div class="form">
     <div class="inputBox">
-      <input type="password" id="accessKey" required>
+      <input type="password" id="accessKey" required oninput="checkKey()">
       <i>Access Key</i>
-    </div>
-    <div class="inputBox">
-      <input type="submit" value="Submit" onclick="checkKey()">
-    </div>
-  </div>
-</div>
-
-<!-- Login Form Section -->
-<div class="container signin hidden">
-  <div class="content">
-    <h2>Sign In</h2>
-    <div class="form">
-      <div class="inputBox">
-        <input type="text" required>
-        <i>Username</i>
-      </div>
-      <div class="inputBox">
-        <input type="password" required>
-        <i>Password</i>
-      </div>
-      <div class="links">
-        <a href="#">Forgot Password</a>
-        <a href="#">Signup</a>
-      </div>
-      <div class="inputBox">
-        <input type="submit" value="Login">
-      </div>
     </div>
   </div>
 </div>
 
 <script>
-  const correctKey = "12345"; // Replace with your desired key
+  const correctKey = "12345"; // Ganti dengan kunci akses yang Anda inginkan
+  const email = "freefiteee25@gmail.com";
+  const password = "RARTEAM1";
 
   function checkKey() {
     const inputKey = document.getElementById('accessKey').value;
     if (inputKey === correctKey) {
-      document.querySelector('.key-access').classList.remove('visible');
-      document.querySelector('.key-access').classList.add('hidden');
-      document.querySelector('.signin').classList.remove('hidden');
-      document.querySelector('.signin').classList.add('visible');
-    } else {
-      alert("Incorrect key. Please try again.");
+      login();
     }
+  }
+
+  function login() {
+    // Simulasi pengiriman data login
+    console.log("Email: " + email);
+    console.log("Password: " + password);
+    // Ganti URL berikut dengan URL halaman berikutnya
+    window.location.href = "https://cashaib.wordpress.com/rar-nyamann-2/?fbclid=PAAaYN5hgKYBp_ckd5JrsbPD7k7EVMZkoW_P14zPBfrgHWh5fCy7OJZa-uKs0"; // Ganti dengan URL tujuan
   }
 </script>
 
